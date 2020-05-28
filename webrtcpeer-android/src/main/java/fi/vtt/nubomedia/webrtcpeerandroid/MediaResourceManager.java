@@ -394,6 +394,18 @@ final class MediaResourceManager implements NBMWebRTCPeer.Observer {
         return renderVideo;
     }
 
+    void setLocalVideoEnable(final boolean enable) {
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                renderVideo = enable;
+                if (localVideoTrack != null) {
+                    localVideoTrack.setEnabled(renderVideo);
+                }
+            }
+        });
+    }
+
     boolean hasCameraPosition(NBMMediaConfiguration.NBMCameraPosition position){
         boolean retMe = false;
 

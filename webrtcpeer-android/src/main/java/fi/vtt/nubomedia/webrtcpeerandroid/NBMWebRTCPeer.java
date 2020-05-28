@@ -566,6 +566,15 @@ public class NBMWebRTCPeer{
     }
 
     /**
+     * Enable or disable upstream video
+     * @param enable If true then video will be enabled, if false then video will be disabled
+     */
+    @SuppressWarnings("unused")
+    public void enableLocalVideo(boolean enable){
+        mediaResourceManager.setLocalVideoEnable(enable);
+    }
+
+    /**
      * Attaches remote stream to renderer
      * @param remoteRender A render callback for rendering the remote media
      * @param remoteStream The remote media stream
